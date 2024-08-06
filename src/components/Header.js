@@ -11,13 +11,13 @@ import { useSelector } from "react-redux";
 let Header = () => {
   let dispatch = useDispatch();
   let navigate = useNavigate();
-  let selector = useSelector((store) => store.user.userInfo)
+
+  let selector = useSelector((store) => store.user.userInfo);
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         const { email, displayName, uid } = user;
-        console.log(user);
 
         dispatch(
           adduserInfo({ Name: displayName, Email: email, user_id: uid })
@@ -31,36 +31,48 @@ let Header = () => {
   }, []);
 
   return (
-    <div className="flex justify-between absolute w-screen items-center">
-      <img
-        className="w-60  "
-        alt="headerImg"
-        src="
+    <div className="header flex justify-between absolute w-screen items-center z-20 top-2  ">
+      <div className="flex items-center">
+        <img
+          className="w-60  "
+          alt="headerImg"
+          src="
      https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
-      ></img>
+        ></img>
+        {selector && (
+          <>
+            <div className="text-white mr-3  cursor-pointer ">Home</div>
+            <div className="text-white mr-3 cursor-pointer ">TV Shows</div>
+            <div className="text-white mr-3 cursor-pointer ">Now Playing</div>
+            <div className="text-white mr-3 cursor-pointer ">new&Popular</div>
+            <div className="text-white mr-3 cursor-pointer ">MyLists</div>
+          </>
+        )}
+      </div>
 
-     {
-      selector&&  <div  className="cursor-pointer"
-      onClick={() => {
-        signOut(auth)
-          .then(() => {
-            navigate("/");
-          })
-          .catch((error) => {
-            // An error happened.
-            console.log("error");
-          });
-      }}
-    >
-      <img
-        className="w-10"
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQH85p8d-QhZgILvGbIS9yZ67JoTb2s4Pohw&s"
-        alt="signou"
-      ></img>
+      {selector && (
+        <div
+          className="cursor-pointer"
+          onClick={() => {
+            signOut(auth)
+              .then(() => {
+                navigate("/");
+              })
+              .catch((error) => {
+                // An error happened.
+                console.log("error");
+              });
+          }}
+        >
+          <img
+            className="w-10"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQH85p8d-QhZgILvGbIS9yZ67JoTb2s4Pohw&s"
+            alt="signou"
+          ></img>
 
-      <div className="mr-5 font-bold">Sign-Out</div>
-    </div>
-     }
+          <div className="mr-5 font-bold text-white">Sign-Out</div>
+        </div>
+      )}
     </div>
   );
 };
