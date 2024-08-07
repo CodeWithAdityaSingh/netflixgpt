@@ -8,7 +8,7 @@ let Login = () => {
   let [error, setError] = useState(null);
   
 
-  console.log(toggle);
+  
   let email = useRef(null);
   let password = useRef(null);
   let name = useRef(null)

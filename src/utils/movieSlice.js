@@ -1,11 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { act } from "react";
+
 
 let movieSlice = createSlice({
     name : 'movie',
     initialState : {
         movieData : null,
-        filteredMovie : null
+        filteredMovie : null,
+        popular : null
+
     },
     reducers  : {
         addMovieList : (state,action)=>{
@@ -14,9 +16,14 @@ let movieSlice = createSlice({
 
         addFilteredMovie : (state,action)=>{
          state.filteredMovie = action.payload
+        },
+        addPopular : (state,action)=>{
+              
+            state.popular = action.payload
+
         }
     }
 })
 
-export const{addMovieList,addFilteredMovie} = movieSlice.actions
+export const{addMovieList,addFilteredMovie,addPopular} = movieSlice.actions
 export default movieSlice.reducer

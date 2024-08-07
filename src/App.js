@@ -3,6 +3,7 @@ import Login from "./components/Login";
 import Browse from "./components/Browse";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
+import GptSearchPage from "./components/GptSearchPage";
 
 let route = createBrowserRouter([
   {
@@ -13,6 +14,10 @@ let route = createBrowserRouter([
     path: "/browse",
     element: <Browse />,
   },
+  {
+    path :'/gptsearch',
+    element : <GptSearchPage/>
+  }
 ]);
 
 function App() {

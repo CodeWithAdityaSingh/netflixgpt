@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { TMDB_OPTION } from "../utils/constans"
+import {  BG_VIDEO_API, TMDB_OPTION } from "../utils/constans"
 
 let useBackgroundVideos = (dataa)=>{
 
@@ -14,7 +14,7 @@ let useBackgroundVideos = (dataa)=>{
 
      let fech = async ()=>{
  
-         let data =  await fetch('https://api.themoviedb.org/3/movie/'+id+'/videos?language=en-US', TMDB_OPTION)
+         let data =  await fetch(BG_VIDEO_API+id+'/videos?language=en-US', TMDB_OPTION)
          let json = await data.json()
          setBgVideo(json.results)
  

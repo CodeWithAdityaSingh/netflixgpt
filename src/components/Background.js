@@ -9,7 +9,7 @@ const Background = ({data}) => {
   
   if(!selector) return
 
-  console.log(selector);
+
   return (
     <div className='background h-screen w-screen '>
        <BackgroundDescription />

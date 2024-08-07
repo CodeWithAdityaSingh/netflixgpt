@@ -1,13 +1,20 @@
 import { useSelector } from "react-redux"
 
-const Secondary = () => {
+import MovieList from "./MovieList";
+
+const Secondary = ({title}) => {
     let selector = useSelector((store)=> store.movie?.movieData)
-      console.log(selector);
+    let selector2 = useSelector((store)=> store.movie?.popular )
+      if(!selector) return
+      if(!selector2) return
       
   return (
-    <div className="secondry text-white">
-      Secondary
-    </div>
+     <>
+      <MovieList data = {selector} title = {"Now Playing"}/>
+      <MovieList data = {selector2} title = {"Trending"}/>
+      <MovieList data = {selector} title = {"Horror"}/>
+      <MovieList data = {selector} title = {"Sports"}/>
+     </>
   )
 }
 

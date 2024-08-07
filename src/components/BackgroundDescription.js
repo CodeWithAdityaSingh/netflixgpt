@@ -9,7 +9,7 @@ const BackgroundDescription = () => {
  
   
   return (
-    <div className='absolute pt-96 pl-28 text-white  bg-gradient-to-r from-black aspect-video'>
+    <div className='absolute pt-80 pl-14 text-white  bg-gradient-to-r from-black aspect-video'>
       <h1 className='font-bold text-6xl mb-4'>{selector[0].original_title}</h1>
       <div className='w-5/12 text-lg '>{selector[0].overview}</div>
       <div>
