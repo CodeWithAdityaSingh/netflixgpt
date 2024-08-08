@@ -1,10 +1,11 @@
 import { useEffect } from "react"
 import { POPULAR_API, TMDB_OPTION } from "../utils/constans"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { addPopular } from "../utils/movieSlice"
 
 let usePopular = ()=>{
     let dispatch = useDispatch()
+    let selector = useSelector((store)=> store.movie.popular)
 
     let fech = async ()=>{
 
@@ -14,12 +15,10 @@ let usePopular = ()=>{
         
         
 
-
-
     }
 
     useEffect(()=>{
-        fech()
+       !selector && fech()
     },[])
 }
 

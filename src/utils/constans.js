@@ -40,3 +40,7 @@ export const gptSearch = {
 };
 
 export const select = ["Hindi", "Spanish", "English", "Russian"];
+
+
+
+export const OPEN_AP_KEY = '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'
